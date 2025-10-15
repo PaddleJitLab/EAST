@@ -8,7 +8,7 @@ if __name__ == '__main__':
     model.eval()
     x = torch.randn(1, 3, 320, 320).to(device)
     try:
-        torch.export.export(f=model, args=(x,))
+        torch.export.export(model, args=(x,))
         print ("[JIT] torch.export successed.")
         exit(0)
     except Exception as e:
